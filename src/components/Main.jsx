@@ -1,63 +1,192 @@
-import React from 'react';
-import f33 from '../assets/f33.png';
-import f79 from '../assets/f79.png';
-import f78 from '../assets/f78.png';
-import f48 from '../assets/f48.png';
-import f100 from '../assets/f100.png';
-import f55 from '../assets/f55.png'
-import LineGraph from './LineGraph';
-import main from '../assets/main.png'
+import { useEffect, useState } from "react";
+import { Gauge, gaugeClasses } from "@mui/x-charts/Gauge";
+import LineGraph from "./LineGraph";
+import main from "../assets/main.png";
 
 function Main() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://trello.vimlc.uz/knowlodge")
+      .then((res) => {
+        if (res.status == 200) {
+          return res.json();
+        }
+      })
+      .then((data) => {
+        setData([data]);
+        // console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <div className='w-full bg-[#F7F7F7]'>
-        <div className='  container max-w-[1440px] mx-auto mt-3 pt-10 px-[64px]'>
-        <div className='flex items-center gap-[10px]'>
-            <div className='w-[13px] h-[43px] bg-[#0956AF] '></div>
-            <h1 className='text-4xl font-semibold '>Билим тести</h1>
-            <div className='w-[1050px] h-[4px] bg-[#DEE2E6]'></div>
+    <div className="max-w-[1440px] pl-16 py-6 pr-14 mx-auto bg-[#F7F7F7] ">
+      <div className="flex items-center mb-8 gap-[10px]">
+        <div className="w-[13px] h-[43px] bg-[#0956AF] "></div>
+        <h1 className="text-4xl font-semibold ">Билим тести</h1>
+        <div className="w-[1050px] h-[4px] bg-[#DEE2E6]"></div>
+      </div>
+      <div className="flex flex-row justify-between items-center">
+        {data.length > 0 &&
+          data.map(function (value, index) {
+            return (
+              <div
+                key={index}
+                className="flex flex-row flex-wrap max-w-[644px] gap-6 "
+              >
+                <div className="w-[198px] flex flex-col justify-center items-center text-center">
+                  <Gauge
+                    value={value.semicharts[0].percentage}
+                    startAngle={-90}
+                    endAngle={90}
+                    height={80}
+                    width={160}
+                    sx={{
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 20,
+                        transform: "translate(0px, 0px)",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#EF233C",
+                      },
+                    }}
+                    text={({ value }) => `${value}%`}
+                  />
+                  <p className="text-[#495057]">{value.semicharts[0].label}</p>
+                </div>
+
+                <div className="w-[198px] flex flex-col justify-center items-center text-center">
+                  <Gauge
+                    value={value.semicharts[1].percentage}
+                    startAngle={-90}
+                    endAngle={90}
+                    height={80}
+                    width={160}
+                    sx={{
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 20,
+                        transform: "translate(0px, 0px)",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#28A264",
+                      },
+                    }}
+                    text={({ value }) => `${value}%`}
+                  />
+                  <p className="text-[#495057]">{value.semicharts[1].label}</p>
+                </div>
+
+                <div className="w-[198px] flex flex-col justify-center items-center text-center">
+                  <Gauge
+                    value={value.semicharts[2].percentage}
+                    startAngle={-90}
+                    endAngle={90}
+                    height={80}
+                    width={160}
+                    sx={{
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 20,
+                        transform: "translate(0px, 0px)",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#28A264",
+                      },
+                    }}
+                    text={({ value }) => `${value}%`}
+                  />
+                  <p className="text-[#495057]">{value.semicharts[2].label}</p>
+                </div>
+
+                <div className="w-[198px] flex flex-col justify-center items-center text-center">
+                  <Gauge
+                    value={value.semicharts[3].percentage}
+                    startAngle={-90}
+                    endAngle={90}
+                    height={80}
+                    width={160}
+                    sx={{
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 20,
+                        transform: "translate(0px, 0px)",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#F8B324",
+                      },
+                    }}
+                    text={({ value }) => `${value}%`}
+                  />
+                  <p className="text-[#495057]">{value.semicharts[3].label}</p>
+                </div>
+
+                <div className="w-[198px] flex flex-col justify-center items-center text-center">
+                  <Gauge
+                    value={value.semicharts[4].percentage}
+                    startAngle={-90}
+                    endAngle={90}
+                    height={80}
+                    width={160}
+                    sx={{
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 20,
+                        transform: "translate(0px, 0px)",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#0956AF",
+                      },
+                    }}
+                    text={({ value }) => `${value}%`}
+                  />
+                  <p className="text-[#495057]">{value.semicharts[4].label}</p>
+                </div>
+
+                <div className="w-[198px] flex flex-col justify-center items-center text-center">
+                  <Gauge
+                    value={value.semicharts[5].percentage}
+                    startAngle={-90}
+                    endAngle={90}
+                    height={80}
+                    width={160}
+                    sx={{
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 20,
+                        transform: "translate(0px, 0px)",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#F8B324",
+                      },
+                    }}
+                    text={({ value }) => `${value}%`}
+                  />
+                  <p className="text-[#495057]">{value.semicharts[5].label}</p>
+                </div>
+              </div>
+            );
+          })}
+
+        <div>
+          {data.length > 0 &&
+            data.map(function (value, index) {
+              return (
+                <div key={index}>
+                  <LineGraph
+                    data={value.lineChart.data}
+                    labels={value.lineChart.labels}
+                  ></LineGraph>
+                  <span className="text-[#0956AF] block mb-2 mt-6 text-5xl font-semibold">
+                    {value.overall}
+                  </span>
+                  <div className="w-[333px]  h-[45px] bg-green-700 rounded-lg"></div>
+                </div>
+              );
+            })}
         </div>
-
-        <div className='mt-8 flex flrx-row justify-between'>
-            <div className='flex flex-row flex-wrap max-w-[644px] gap-6 items-center justify-center'>
-                <div className='w-[198px] justify-center items-center flex gap-2 flex-col'>
-                    <img src={f33} alt="" />
-                    <p className='text-[#495057] text-center text-base'>Конституциявий-хукукий саводхонлик</p>
-                </div>
-                <div className='w-[198px] justify-center items-center flex gap-2 flex-col'>
-                    <img src={f79} alt="" />
-                    <p className='text-[#495057] text-center text-base'>Ахборот-коммуникация технологиялари</p>
-                </div>
-                <div className='w-[198px] justify-center items-center flex gap-2 flex-col'>
-                    <img src={f78} alt="" />
-                    <p className='text-[#495057] text-center text-base'>Ахборот-коммуникация технологиялари</p>
-                </div>
-
-                <div className='w-[198px] justify-center items-center flex gap-2 flex-col'>
-                    <img src={f48} alt="" />
-                    <p className='text-[#495057] text-center text-base'>Узбек тили ва адабиёти</p>
-                </div>
-                <div className='w-[198px] justify-center items-center flex gap-2 flex-col'>
-                    <img src={f100} alt="" />
-                    <p className='text-[#495057] text-center text-base'>Узбекистон тарихи ва маданияти</p>
-                </div>
-                <div className='w-[198px] justify-center items-center flex gap-2 flex-col'>
-                    <img src={f55} alt="" />
-                    <p className='text-[#495057] text-center text-base'>Аклий салохияти ва мантикий фикрлаш</p>
-                </div>
-            </div>
-
-            <div>
-                <LineGraph></LineGraph>
-                <span className='text-[#0956AF] block mt-6 text-5xl font-semibold'>78%</span>
-                <div className='w-[333px]  h-[45px] bg-green-700 rounded-lg'></div>
-            </div>
-            <img src={main} alt="" />
-        </div>
-
+        <img src={main} alt="" />
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Main
+export default Main;

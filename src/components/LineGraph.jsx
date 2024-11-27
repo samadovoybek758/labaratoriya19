@@ -1,11 +1,30 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 
 const LineGraph = () => {
-  const sampleData = [10,27,50,70,23,40,60];
+  const sampleData = [10, 27, 50, 70, 23, 40, 60];
 
   const canvasData = {
     datasets: [
@@ -14,7 +33,7 @@ const LineGraph = () => {
         borderColor: "#0E9CFF",
         pointRadius: 2,
         fill: true,
-        backgroundColor: 'transparent',
+        backgroundColor: "transparent",
         lineTension: 0,
         data: sampleData,
         borderWidth: 3,
@@ -28,7 +47,7 @@ const LineGraph = () => {
         // grid: {
         //   display: false,
         // },
-        labels: [12.06,18.06,'03.07',13.07,14.07,20.07,24.07],
+        labels: [12.06, 18.06, "03.07", 13.07, 14.07, 20.07, 24.07],
         ticks: {
           color: "#333333",
           font: {
