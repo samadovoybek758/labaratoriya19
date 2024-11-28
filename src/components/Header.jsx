@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import gerb from "../assets/gerb.svg";
 import { useEffect, useState } from "react";
 import {
@@ -6,9 +6,14 @@ import {
   GaugeReferenceArc,
   GaugeValueArc,
 } from "@mui/x-charts/Gauge";
+import { useDispatch, useSelector } from "react-redux";
+import { Dark, Light } from "../store/LightMood";
 
 function Header() {
+  const reduxdata = useSelector((state => state.light.value))
+  console.log(reduxdata);
   const [UserData, setUserData] = useState([]);
+  const checkRef = useRef()
 
   useEffect(() => {
     fetch("https://trello.vimlc.uz/get-personal-info")
@@ -24,6 +29,14 @@ function Header() {
         console.error("Xatolik:", error);
       });
   }, []);
+
+
+
+  function handlecheck() {
+    console.log('checked');
+  }
+  
+
 
   return (
     <div className="container max-w-[1440px] mx-auto mt-3 pt-10 px-[64px]">
@@ -43,6 +56,7 @@ function Header() {
           </span>
           <span className="text-[#28A264] font-bold text-[32px]">^2</span>
         </div>
+        <input onChange={handlecheck} type="checkbox" name="" id="" />
       </div>
 
       <div className="py-[35px]">

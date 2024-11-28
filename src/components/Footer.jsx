@@ -14,7 +14,7 @@ function Footer() {
         }
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setData(data);
       })
       .catch((err) => {
@@ -24,10 +24,7 @@ function Footer() {
 
 
 
-  function asdfasd(e) {
-    e.preventDefault()
-    console.log(data);
-  }
+ 
   return (
     <div className="max-w-[1440px] pl-16 pr-16 mx-auto pt-8">
       <div>
@@ -39,7 +36,7 @@ function Footer() {
           <div className="w-[593px] h-[4px] bg-[#DEE2E6]"></div>
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <div className="flex max-w-[978px] flex-wrap flex-row gap-6 justify-between">
             {data.length > 0 &&
               data.map(function (value, index) {
@@ -63,7 +60,7 @@ function Footer() {
                     text={({ value }) => `${value}%`}
                   />
 
-                  <h1 className="text-2xl font-semibold">{value.label}</h1>
+                  <h1 className="text-2xl font-semibold w-[220px]">{value.label}</h1>
                   </div>
                 );
               })}

@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Gauge, gaugeClasses } from "@mui/x-charts/Gauge";
 import LineGraph from "./LineGraph";
 import main from "../assets/main.png";
 
 function Main() {
   const [data, setData] = useState([]);
+  const divRef = useRef()
 
   useEffect(() => {
     fetch("https://trello.vimlc.uz/knowlodge")
@@ -21,6 +22,14 @@ function Main() {
         console.log(err);
       });
   }, []);
+  useEffect(() =>{
+   
+    if (data.length && divRef.current) {
+
+      const g = (data[0].overall.slice(0,2) / 100) * 333;
+      divRef.current.style.background = `linear-gradient(to right, #28A264 ${g}px, #DEE2E6 0%)`;
+    }
+  },[data])
 
   return (
     <div className="max-w-[1440px] pl-16 py-6 pr-14 mx-auto bg-[#F7F7F7] ">
@@ -178,7 +187,7 @@ function Main() {
                   <span className="text-[#0956AF] block mb-2 mt-6 text-5xl font-semibold">
                     {value.overall}
                   </span>
-                  <div className="w-[333px]  h-[45px] bg-green-700 rounded-lg"></div>
+                  <div ref={divRef} className="w-[333px]  h-[45px] rounded-lg"></div>
                 </div>
               );
             })}

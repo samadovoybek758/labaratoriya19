@@ -25,7 +25,7 @@ function Feature() {
       })
       .then((data) => {
         setData([data]);
-        console.log(2, data);
+        // console.log(2, data);
       })
       .catch((err) => {
         console.log(err);
@@ -37,28 +37,28 @@ function Feature() {
       let percent = data[0].percents[0].percentage;
       const absolidWith = (percent / 100) * 431;
 
-      firstDivRef.current.style.background = `linear-gradient(to right, #0956AF ${absolidWith}px, transparent 0%)`;
+      firstDivRef.current.style.background = `linear-gradient(to right, #0956AF ${absolidWith}px, #DEE2E6 0%)`;
     }
 
     if (data.length > 0 && secondDivRef.current) {
       let percent = data[0].percents[1].percentage;
       const a = (percent / 100) * 431;
 
-      secondDivRef.current.style.background = `linear-gradient(to right, #0956AF ${a}px, transparent 0%)`;
+      secondDivRef.current.style.background = `linear-gradient(to right, #0956AF ${a}px, #DEE2E6 0%)`;
     }
 
     if (data.length > 0 && thirdDivRef.current) {
       let percent = data[0].percents[2].percentage;
       const b = (percent / 100) * 431;
 
-      thirdDivRef.current.style.background = `linear-gradient(to right, #0956AF ${b}px, transparent 0%)`;
+      thirdDivRef.current.style.background = `linear-gradient(to right, #0956AF ${b}px, #DEE2E6 0%)`;
     }
 
     if (data.length > 0 && fourtDivRef.current) {
       let percent = data[0].percents[3].percentage;
       const d = (percent / 100) * 431;
 
-      fourtDivRef.current.style.background = `linear-gradient(to right, #0956AF ${d}px, transparent 0%)`;
+      fourtDivRef.current.style.background = `linear-gradient(to right, #0956AF ${d}px, #DEE2E6 0%)`;
     }
 
 
@@ -66,28 +66,28 @@ function Feature() {
         let percent = data[0].percents[4].percentage;
         const c = (percent / 100) * 431;
   
-        fifthDivRef.current.style.background = `linear-gradient(to right, #0956AF ${c}px, transparent 0%)`;
+        fifthDivRef.current.style.background = `linear-gradient(to right, #0956AF ${c}px, #DEE2E6 0%)`;
       }
   
       if (data.length > 0 && secondDivRef.current) {
         let percent = data[0].percents[5].percentage;
         const f = (percent / 100) * 431;
   
-        sixthDivRef.current.style.background = `linear-gradient(to right, #0956AF ${f}px, transparent 0%)`;
+        sixthDivRef.current.style.background = `linear-gradient(to right, #0956AF ${f}px, #DEE2E6 0%)`;
       }
   
       if (data.length > 0 && thirdDivRef.current) {
         let percent = data[0].percents[6].percentage;
         const g = (percent / 100) * 431;
   
-        seventhDivRef.current.style.background = `linear-gradient(to right, #0956AF ${g}px, transparent 0%)`;
+        seventhDivRef.current.style.background = `linear-gradient(to right, #0956AF ${g}px, #DEE2E6 0%)`;
       }
   
       if (data.length > 0 && fourtDivRef.current) {
         let percent = data[0].percents[7].percentage;
         const e = (percent / 100) * 431;
   
-        eighthRef.current.style.background = `linear-gradient(to right, #0956AF ${e}px, transparent 0%)`;
+        eighthRef.current.style.background = `linear-gradient(to right, #0956AF ${e}px, #DEE2E6 0%)`;
       }
   }, [data]);
 
@@ -113,7 +113,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={firstDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[0].percentage}%
@@ -126,7 +126,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={secondDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[1].percentage}%
@@ -139,7 +139,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={thirdDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[2].percentage}%
@@ -152,7 +152,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={fourtDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[3].percentage}%
@@ -176,7 +176,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={fifthDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[4].percentage}%
@@ -189,7 +189,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={sixthDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[5].percentage}%
@@ -202,7 +202,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={seventhDivRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[6].percentage}%
@@ -215,7 +215,7 @@ function Feature() {
                       <div className="flex flex-row gap-[18px] items-center">
                         <div
                           ref={eighthRef}
-                          className="w-[431px] h-2 rounded-full border border-solid border-gray-600 "
+                          className="w-[431px] h-2 rounded-full  "
                         ></div>
                         <span className="text-[#212529] text-xl font-medium">
                           {value.percents[7].percentage}%
